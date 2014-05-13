@@ -30,7 +30,7 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
         $side = mysql_real_escape_string($_POST["side"]);
         $classname = mysql_real_escape_string($_POST["classname"]);
         $type = mysql_real_escape_string($_POST["type_data"]);
-        $pid = intval($_POST["pid"]);
+        $pid = mysql_real_escape_string($_POST["pid"]);
         $alive = intval($_POST["alive"]);
         $active = intval($_POST["active"]);
         $plate = intval($_POST["plate"]);

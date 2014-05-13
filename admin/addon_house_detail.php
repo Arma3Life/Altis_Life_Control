@@ -28,7 +28,7 @@ else{
 ///////////////////////////////////////////////////////////////////////////
 if (isset($_POST['type']) || !empty($_POST['type'])){
     if($_POST['type'] == "edit_general"){
-        $pid = intval($_POST["pid"]);
+        $pid = mysql_real_escape_string($_POST["pid"]);
         $occupied = intval($_POST["occupied"]);
         $locked = intval($_POST["locked"]);
         $storage = mysql_real_escape_string($_POST["storage"]);

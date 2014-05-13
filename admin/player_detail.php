@@ -18,7 +18,7 @@ if(ctype_digit($_GET['uid']) == false){
     header('Location: player.php');
 }
 else{
-    $uid = intval(htmlspecialchars($_GET['uid']));
+    $uid = mysql_real_escape_string(htmlspecialchars($_GET['uid']));
 }
 ///////////////////////////////////////////////////////////////////////////
 //////////////////////// START RELOAD AREA ////////////////////////////////
@@ -28,8 +28,8 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
         $coplevel = intval($_POST["coplevel"]);
         $donatorlvl = intval($_POST["donatorlvl"]);
         $adminlevel = intval($_POST["adminlevel"]);
-        $cash = intval($_POST["cash"]);
-        $bankacc = intval($_POST["bankacc"]);
+        $cash = mysql_real_escape_string($_POST["cash"]);
+        $bankacc = mysql_real_escape_string($_POST["bankacc"]);
         $arrested = intval($_POST["arrested"]);
         $blacklist = intval($_POST["blacklist"]);
         $update = mysql_query("UPDATE players SET coplevel = '".$coplevel."', donatorlvl = '".$donatorlvl."', adminlevel = '".$adminlevel."', cash = '".$cash."', bankacc = '".$bankacc."', arrested = '".$arrested."', blacklist = '".$blacklist."' WHERE uid = '".$uid."' ");
@@ -77,7 +77,7 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
                 echo "fehler: ".mysql_error()."<br>"; 
                 exit();        
             }
-        $pid = intval($_POST['playerid']);
+        $pid = mysql_real_escape_string($_POST['playerid']);
         $delete_vehicles = mysql_query("DELETE FROM vehicles WHERE pid = '".$pid."' ");
             if(!$delete_vehicles) {
                 echo "fehler: ".mysql_error()."<br>"; 

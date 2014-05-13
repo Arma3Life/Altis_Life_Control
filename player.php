@@ -9,9 +9,8 @@ if(ctype_digit($_POST['steam_id']) == false){
     exit;
 }
 else{
-    $steam_id = intval($_POST['steam_id']);
+    $steam_id = $_POST['steam_id'];
 }
-
 require_once "config.php";
 // DEBUG CHECK
 if ($debug=="1"){
@@ -22,7 +21,7 @@ require_once PROJECT_PATH."/lang/de.php";
 require_once PROJECT_PATH."/include/db.php";
 require_once PROJECT_PATH."/include/function_html_basic.php";
 startHTML();
-$player_detail_SQL = mysql_query("SELECT * FROM players WHERE playerid = ".$steam_id."");
+$player_detail_SQL = mysql_query("SELECT * FROM players WHERE playerid = '".$steam_id."'");
 $row = mysql_fetch_object($player_detail_SQL);
 
 $get_skin_civ = $row->civ_gear;
