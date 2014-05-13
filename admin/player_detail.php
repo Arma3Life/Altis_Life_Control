@@ -218,7 +218,7 @@ else{
     <div class="panel panel-default">
     <ul class="nav nav-tabs" id="player_tabs">
         <li class="active"><a href="#licenses">Licenses</a></li>
-        <li><a href="#civ_inventory">Civ Inventroy</a></li>
+        <li><a href="#civ_inventory">Civ Inventory</a></li>
         <li><a href="#cop_inventory">Cop Inventory</a></li>
         <li><a href="#vehicles">Vehicles</a></li>
         <?php if($housing_mario == "1"){ echo "<li><a href='#houses'>Houses</a></li>";}
