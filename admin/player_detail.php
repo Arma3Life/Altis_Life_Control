@@ -469,7 +469,7 @@ else{
                             <label>Arrested</label> 
                             <select class="form-control" name="arrested">
                                     <?php
-                                    for ( $x = 0; $x < 1; $x++){
+                                    for ( $x = 0; $x < 2; $x++){
                                         if($x == $row->arrested){
                                             echo "<option selected value='".$x."'> ".$x."</option>";    
                                         }
@@ -484,7 +484,7 @@ else{
                             <label>Arrested</label> 
                             <select class="form-control" name="blacklist">
                                     <?php
-                                    for ( $x = 0; $x < 1; $x++){
+                                    for ( $x = 0; $x < 2; $x++){
                                         if($x == $row->blacklist){
                                             echo "<option selected value='".$x."'> ".$x."</option>";    
                                         }
