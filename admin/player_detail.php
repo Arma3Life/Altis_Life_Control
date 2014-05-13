@@ -481,7 +481,7 @@ else{
                                 </select>
                         </div>
                         <div class="col-md-6">
-                            <label>Arrested</label> 
+                            <label>Blacklisted</label> 
                             <select class="form-control" name="blacklist">
                                     <?php
                                     for ( $x = 0; $x < 2; $x++){
