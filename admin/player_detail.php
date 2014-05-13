@@ -18,7 +18,7 @@ if(ctype_digit($_GET['uid']) == false){
     header('Location: player.php');
 }
 else{
-    $uid = mysql_real_escape_string(htmlspecialchars($_GET['uid']));
+    $uid = mysql_real_escape_string($_GET['uid']);
 }
 ///////////////////////////////////////////////////////////////////////////
 //////////////////////// START RELOAD AREA ////////////////////////////////
@@ -40,15 +40,16 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
             
     }
     if($_POST['type'] == "civ_licenses"){
-        $civ_licenses_value = htmlspecialchars($_POST["civ_licenses_value"]);
+		$civ_licenses_value = mysql_real_escape_string($_POST["civ_licenses_value"]);
         $update = mysql_query("UPDATE players SET civ_licenses = '".$civ_licenses_value."' WHERE uid = '".$uid."' ");
             if(!$update) {
                 echo "fehler: ".mysql_error()."<br>"; 
                 exit();        
-            } 
+            }
+		
     }
     if($_POST['type'] == "cop_licenses"){
-        $cop_licenses_value = htmlspecialchars($_POST["cop_licenses_value"]);
+        $cop_licenses_value = mysql_real_escape_string($_POST["cop_licenses_value"]);
         $update = mysql_query("UPDATE players SET cop_licenses = '".$cop_licenses_value."' WHERE uid = '".$uid."' ");
             if(!$update) {
                 echo "fehler: ".mysql_error()."<br>"; 
@@ -56,7 +57,7 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
             } 
     }
     if($_POST['type'] == "civ_gear"){
-        $civ_gear_value = htmlspecialchars($_POST["civ_gear_value"]);
+        $civ_gear_value = mysql_real_escape_string($_POST["civ_gear_value"]);
         $update = mysql_query("UPDATE players SET civ_gear = '".$civ_gear_value."' WHERE uid = '".$uid."' ");
             if(!$update) {
                 echo "fehler: ".mysql_error()."<br>"; 
@@ -64,7 +65,7 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
             } 
     }
     if($_POST['type'] == "cop_gear"){
-        $cop_gear_value = htmlspecialchars($_POST["cop_gear_value"]);
+        $cop_gear_value = mysql_real_escape_string($_POST["cop_gear_value"]);
         $update = mysql_query("UPDATE players SET cop_gear = '".$cop_gear_value."' WHERE uid = '".$uid."' ");
             if(!$update) {
                 echo "fehler: ".mysql_error()."<br>"; 
@@ -234,7 +235,7 @@ else{
                 <div class="well ">
                     <!-- CIV Licenses CONTENT -->
                     <?php 
-                    //Format the String of the Licenses to a nice layout
+					//Format the String of the Licenses to a nice layout
                     $civ_licenses = array();
                     $civ_licenses = explode("],[", $row->civ_licenses);
                     $civ_licenses = str_replace("]]\"","",$civ_licenses);
@@ -246,10 +247,10 @@ else{
                         //    echo "<p>";
                         //}
                         if(strpos($civ_licenses[$x], "1")!==false){
-                            echo "<span class='label label-success' style='margin-right:3px; line-height:2;'>".substr($civ_licenses[$x],2,-2)."</span> ";    
+                            echo "<span class='label label-success' style='margin-right:3px; line-height:2;'>".substr($civ_licenses[$x],0,-2)."</span> ";    
                         }
                         else{
-                            echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($civ_licenses[$x],2,-2)."</span> "; 
+                            echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($civ_licenses[$x],0,-2)."</span> "; 
                         }
                         //if($x%2 == 0){
                         //    echo "</p>";
@@ -274,10 +275,10 @@ else{
                     //CREATING OUTPUT        
                     for ( $x = 0; $x < count ($cop_licenses); $x++){
                         if(strpos($cop_licenses[$x], "1")!==false){
-                            echo "<span class='label label-success' style='margin-right:3px; line-height:2;'>".substr($cop_licenses[$x],2,-2)."</span> ";    
+                            echo "<span class='label label-success' style='margin-right:3px; line-height:2;'>".substr($cop_licenses[$x],0,-2)."</span> ";    
                         }
                         else{
-                            echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($cop_licenses[$x],2,-2)."</span> "; 
+                            echo "<span class='label label-danger' style='margin-right:3px; line-height:2;'>".substr($cop_licenses[$x],0,-2)."</span> "; 
                         }
                     }
                     ?>
