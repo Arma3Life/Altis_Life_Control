@@ -48,7 +48,8 @@ if (isset($_POST['type']) || !empty($_POST['type'])){
             if(!$delete) {
                 echo "fehler: ".mysql_error()."<br>"; 
                 exit();        
-            } 
+            }
+		header('Location: vehicles.php');
     }
     
 }
@@ -64,8 +65,8 @@ $row = mysql_fetch_object($vehicle_detail_SQL);
         <div class="row">
             <ol class="breadcrumb">
                 <li><a href="index.php">Start</a></li>
-                <li><a href="player.php">Vehicle List</a></li>
-                <li><a href="player.php">Vehicle Editor</a></li>
+                <li><a href="vehicles.php">Vehicle List</a></li>
+                <li><a href="vehicles.php">Vehicle Editor</a></li>
                 <li class="active"><?php echo $row->classname." ID: ".$row->id ; ?></li>
             </ol>
         </div>
