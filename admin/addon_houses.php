@@ -16,7 +16,7 @@ loggedin();
 //START RELOAD AREA
 if (!empty($_POST)){
     $error_user = array();
-    // REMOVE Vehicle
+    // REMOVE Houses
     if ($_POST['type'] == "delete"){
         $edit_house_id = intval($_POST['id']);
         $remove_house = mysql_query("DELETE FROM houses WHERE id = '".$edit_house_id."'");
@@ -74,7 +74,7 @@ startHTML();
                     <td><?php echo "<a href='player_detail.php?uid=".$row->uid."'>".htmlspecialchars($row->name)."</a>";?></td>
                     <td><?php echo $row->occupied;?></td>
                     <td><?php echo $row->locked;?></td>
-                    <td><a href="house_detail.php?id=<?php echo $row->id;?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <td><a href="addon_house_detail.php?id=<?php echo $row->id;?>" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a data-toggle="modal" href="addon_houses.php#houses_delete_<?php echo $row->id;?>" class="btn btn-primary"><span class="glyphicon glyphicon-trash"></span></a></td>
                 </tr>
             </div>
