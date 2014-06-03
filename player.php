@@ -266,9 +266,9 @@ else{
                 <tr>
                     <td><?php echo $row_houses->id;?></td>
                     <td><?php echo "<a href='houses.php?id=".$row_houses->house_id."'>".$row_houses->house_id."</a>";?></td>
-                    <td style="word-wrap: break-word;><?php echo $row_houses->storage;?></td>
-                    <td style="word-wrap: break-word;><?php echo $row_houses->trunk;?></td>
-                    <td style="word-wrap: break-word;><?php echo $row_houses->weapon_storage;?></td>
+                    <td style="word-wrap: break-word;"><?php echo $row_houses->storage;?></td>
+                    <td style="word-wrap: break-word;"><?php echo $row_houses->trunk;?></td>
+                    <td style="word-wrap: break-word;"><?php echo $row_houses->weapon_storage;?></td>
                     <td><?php echo $row_houses->position;?></td>
                     <td><?php echo $row_houses->occupied;?></td>
                     <td><?php echo $row_houses->locked;?></td>
