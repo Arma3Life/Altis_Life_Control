@@ -3,8 +3,7 @@
 //////////////////////////////// MYSQL SETTINGS /////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
 
-$dbhost = "123.456.789.098";        //Database IP or Domain
-$dbport = "3306";                   //Database Port|Leaf empty if not used
+$dbhost = "127.0.0.1:3306";        //Database IP or Domain
 $dbname = "arma3life";              //Database Name
 $dbuser = "johnDoe";           		//Database User with writing rights
 $dbpswd = "SecretPassword";    		//Database User Password
